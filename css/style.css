@@ -1,0 +1,35 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+main{
+   
+
+}
+#container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+}
+.cart{
+    
+    width: 15%;  
+}
+.cart img{
+    width: 60%;
+    
+}
+.cart h3{
+    text-align: center;
+    font-size: 1.3rem;
+
+}
+
+#description{
+    width: 80%;
+    text-align: center;
+}
+

@@ -14,9 +14,16 @@ main{
     gap: 40px;
     justify-content: center;
 }
+.top{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border:2px solid rgb(23, 117, 117);
+}
 .cart{
     
     width: 15%;  
+    border:2px solid rgb(23, 117, 117);
 }
 .cart img{
     width: 60%;
@@ -29,7 +36,58 @@ main{
 }
 
 #description{
-    width: 80%;
-    text-align: center;
+    
+    text-align: left;
+    padding: 15px;
 }
+
+#category{
+    padding-left: 15px;
+}
+#stock{
+    padding-left: 15px;
+}
+#price{
+    padding-left: 15px;
+}
+.cart button{
+    margin-left: 40%;
+}
+
+
+
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(23, 117, 117);
+    align-items: center;
+    height: 4rem;
+
+    
+}
+nav ul{
+    display: flex;
+    justify-content: space-evenly;
+    width: 30%;
+    align-items: center;
+
+}
+
+nav ul li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    
+}
+nav ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+nav h3{
+    font-size: 2rem;
+    margin-left: 10%;
+}
+
 

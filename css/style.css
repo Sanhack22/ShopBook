@@ -91,3 +91,39 @@ nav h3{
 }
 
 
+/*CARRITO*/
+#modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: right;
+   
+  }
+  
+  #modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 20%;
+    overflow-y: auto;
+  }
+  
+  #close-modal {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  
+  #car {
+    margin-top: 20px;
+  }
+  
+  .item-car {
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+  }

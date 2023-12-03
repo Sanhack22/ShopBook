@@ -8,32 +8,92 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <nav>
-        <h3>ShopBook</h3>
-        <ul>
-            <li>
-                <a href="">Crear Producto</a>
-            </li>
-            <li>
-                <img src="asset/carritos.svg" alt="" id="car-buy">
-                <p id="num-items"></p>
-            </li>
-        </ul>
-    </nav>
+    <header>
+        <h1>ShopBook</h1>
 
-    <section id="container">
-     
+        <div class="container-icon">
+            <div class="container-cart-icon">
+                <p id="create-Product">Crear Producto</p>
+                <p id="Update">Actualizar Productos</p>
+                <img src="asset/carritos.svg" alt="" id="car-buy" class="icon-cart">
+
+                <div class="count-products">
+                    <span id="count-products">0</span>
+                </div>
+            </div>
+
+
+        <!-- Carrito -->
+            <div class="container-cart-products hidden-cart">
+                <div class="row-product hidden">
+                    
+                </div>
+
+                <div class="cart-total hidden">
+                    <h3>Total:</h3>
+                    <span class="total-price">$0</span>
+                </div>
+                <p class="cart-empty">Carrito Vacido</p>
+            </div>
+        </div>
+    </header>
+    <section class="formCreate hidden-cart">
+        <form id="productForm">
+            <h2>AGREGAR PRODUCTO</h2>
+            <label for="productName">Nombre del Producto:</label>
+            <input type="text" id="productName" required>
+        
+            <label for="productImage">URL de la Imagen:</label>
+            <input type="text" id="productImage" required>
+        
+            <label for="productPrice">Precio:</label>
+            <input type="number" id="productPrice" required>
+        
+            <label for="productCategory">Categoría:</label>
+            <input type="text" id="productCategory" required>
+        
+            <label for="productDescription">Descripción:</label>
+            <textarea id="productDescription" required></textarea>
+        
+            <label for="productStock">Stock:</label>
+            <input type="number" id="productStock" required>
+        
+            <button type="button" onclick="addProduct()">Agregar Producto</button>
+          </form>
+
+          
     </section>
-    <div id="carr">
+    <div class="UpdateDiv hidden-cart">
+    <form class="updateProductForm" >
+        <h2>ACTUALIZAR</h2>
+        <div>
+            <label for="productId">ID del Producto:</label>
+            <input type="number" id="productId" required>
+        <button type="button" onclick="fillProductDetails()">Buscar Producto</button>
+        </div>
+        
+       
+        <label for="newName">Nombre:</label>
+        <input type="text" id="newName" required>
+
+        <label for="newCategory">Categoria:</label>
+        <input type="text" id="newCategory" required>
+
+        <label for="newStock">Cantidad:</label>
+        <input type="number" id="newStock" required>
+
+        <label for="newDescription">Descripción:</label>
+        <textarea id="newDescription" required></textarea>
+
+        <label for="newPrice">Precio:</label>
+        <input type="number" id="newPrice" required>
+        <button type="submit">Actualizar Producto</button>
+      </form>
+    </div>
+    <div id="container-items">
         
     </div>
-    <div id="modal">
-        <div id="modal-content">
-          <span id="close-modal">&times;</span>
-          <h2>Carrito de Compras</h2>
-          <div id="car"></div>
-        </div>
-      </div>
-</body>
+    
+    
 <script src="app.js"></script>
 </html>

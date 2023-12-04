@@ -8,7 +8,8 @@
 header{
     display: flex;
     justify-content: space-between;
-    padding: 30px 0 40px 0;
+    padding: 20px 0 20px 0;
+    background-color: #0E797D;
 }
 
 .container-icon{
@@ -19,7 +20,21 @@ header{
     display: flex;
     justify-content: space-evenly;
 }
-
+#Update,#create-Product{
+    background-color: #08537b;
+    padding: 0.5rem 0;
+    border-radius: 5px;
+    cursor: pointer;
+    color: rgb(220, 216, 216);
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+#create-Product:hover,#Update:hover{
+    background-color: #300E7D;
+    color: rgb(255, 255, 255);
+}
 #car-buy{
     position: absolute;
     width: 40px;
@@ -138,22 +153,17 @@ header{
 .top{
     display: flex;
     flex-direction: column;
-    border:2px solid rgb(23, 117, 117);
-    height: 40%;
+    height: 20rem;
 }
 .top img{
     align-self: center;
 }
-.cart{
-    
-    width: 30%;  
-    border:2px solid rgb(23, 117, 117);
-}
+
 .cart img{
     margin-top: 5%;
     width: 60%;
     background-attachment: fixed;
-    height: 70%;
+    height: 80%;
     
 }
 .cart h3{
@@ -163,15 +173,30 @@ header{
 }
 
 #description{
-    padding: 8px;
-    height: 35%;
+    border-top: 3px solid #300E7D;
+
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    height: 40%;
     
 
 }
 
 
-.cart button{
+.cart-empty{
+    position: relative;
+    cursor: pointer;
     text-align: center;
+    bottom: 10px;
+    left: 6rem;
+    margin: 0;
+    padding: 10px 20px;
+    width: 10rem;
+    background-color: #300E7D;
+    color: #fff;
+    
+    
 }
 
 
@@ -210,8 +235,10 @@ nav h3{
     margin-left: 10%;
 }
 .identity{
-    margin-left: 0.2rem;
+    margin-left: -0.2rem;
+    margin-top: -8px;
     align-self: flex-start;
+    
     position: absolute;
 }
 
@@ -231,6 +258,10 @@ nav h3{
 
 .hidden-cart{
     display: none;
+}
+
+.bot{
+    height: 20%;
 }
 /*FORMULARIO*/
 /* Agrega estos estilos a tu archivo de hojas de estilo CSS */
@@ -277,13 +308,15 @@ nav h3{
  
   
   .cart {
-    width: 16%;
+    display: flex;
+    flex-direction: column;
+    width: 23%;
     margin: 20px;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    box-shadow: 3px 10px 5px rgba(0, 0, 0, 0.1);
+    height: 37rem;
   }
   
   .cart img {
@@ -292,16 +325,17 @@ nav h3{
   }
   
   .addToCartBtn {
-    background-color: #28a745;
+    background-color: #300E7D;
     color: #fff;
-    padding: 8px;
+    padding: 8px 5rem;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    
   }
   
   .addToCartBtn:hover {
-    background-color: #218838;
+    background-color: #0E567D;
   }
   
 
@@ -337,4 +371,8 @@ nav h3{
 }
 .updateProductForm button:hover{
     background-color: #0056b3;
+}
+
+#category,#stock,#price{
+    font-size: 1.1rem;
 }

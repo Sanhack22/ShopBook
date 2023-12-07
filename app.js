@@ -1,4 +1,13 @@
 
+  window.addEventListener('DOMContentLoaded', () => {
+    const storedArrayProducts = localStorage.getItem('ArrayProducts');
+    if (storedArrayProducts) {
+      ArrayProducts = JSON.parse(storedArrayProducts);
+      renderProducts(productList);
+      showHTML();
+    }})
+  
+  
   const btnCart = document.querySelector('#car-buy');
   const filter = document.querySelector('#filter');
   const modal = document.querySelector('.container-cart-products');
@@ -18,18 +27,18 @@ const countProduct = document.querySelector('#count-products')
 let productList = JSON.parse(localStorage.getItem('productList')) ||[
     {
       id: 1,
-      name: 'La carretera1',
-      img: '../asset/images/LaCarretera.jfif',
-      price: 30000,
+      name: 'Historias De Terror',
+      img: 'https://images.cdn3.buscalibre.com/fit-in/360x360/98/a9/98a9a6a6773ce8d2c808b27ae84fde6f.jpg',
+      price: 35000,
       category: 'Terror',
-      description: 'La carretera es una novela post-apocalíptica de ciencia ficción...',
+      description: 'Lovecraft propone una imagen del mundo nueva para terrores novedosos. Crea una nueva mitología habitada por seres vivos, muertos o aletargados, venidos de estrellas que aún no conocemos, provenientes de ignotas dimensiones situadas más allá del tiempo y el espacio,',
       stock: 10
     },
     {
       id: 2,
-      name: 'La carretera2',
+      name: 'La carretera',
       img: '../asset/images/LaCarretera.jfif',
-      price: 30000,
+      price: 50000,
       category: 'Terror',
       description: 'La carretera es una novela post-apocalíptica de ciencia ficción escrita en 2006 por el novelista estadounidense Cormac McCarthy, creador de otras novelas como No es país para viejos y la trilogía de la frontera.',
       stock: 10
@@ -49,7 +58,7 @@ let productList = JSON.parse(localStorage.getItem('productList')) ||[
       id:4,
       name:'Inadaptados',
       img: 'https://storage.googleapis.com/catalogo-libros/extralarge/6ac72a2d-d596-8cc4-9325-654283e7109f_imagen.jpg',
-      price: 30000,
+      price: 22000,
       category:'Ficción',
       description:'Nos hará reflexionar sobre la falsa idea que nos venden del mundo, el éxito, el romanticismo, la felicidad, el turismo y la búsqueda del propósito. Este libro reúne un texto de análisis a la sociedad, narrado por un personaje, quien nos revela que ser un “Inadaptado” es la mejor cachetada a la parodia que nos vende el sistema.',
       stock:10
@@ -72,17 +81,17 @@ let productList = JSON.parse(localStorage.getItem('productList')) ||[
       price: 25000,
       category: 'Literatura',
       description: 'Una de las obras más emblemáticas de la literatura latinoamericana. Narra la historia de la familia Buendía en el pueblo ficticio de Macondo. A lo largo de sus páginas, García Márquez nos presenta un mundo mágico y surrealista, lleno de personajes inolvidables.',
-      stock: 10
+      stock: 20
     }
     ,
     {
       id: 7,
       name: 'El amor en los tiempos del cólera',
       img: 'https://images.cdn1.buscalibre.com/fit-in/360x360/b0/3e/b03e98118b9e2cf5b94bb0548bfa59c5.jpg',
-      price: 25000,
+      price: 33000,
       category: 'Literatura',
       description: 'La historia de amor de Fermina Daza y Florentino Ariza, que se extiende durante más de 50 años. Una novela que explora el poder del amor, la pasión y la fidelidad.',
-      stock: 10
+      stock:4
     }
     ,
     {
@@ -92,24 +101,24 @@ let productList = JSON.parse(localStorage.getItem('productList')) ||[
       price: 25000,
       category: 'Literatura',
       description: 'La historia de un asesinato premeditado que se narra en retrospectiva. García Márquez nos presenta una visión macabra y fatalista de la vida.',
-      stock: 10
+      stock: 6
     }
     ,
     {
       id: 9,
       name: 'La metamorfosis',
       img: 'https://images.cdn3.buscalibre.com/fit-in/360x360/7c/f8/7cf84202b1f8676cee2ea47dc152ba1b.jpg',
-      price: 20000,
+      price: 10000,
       category: 'Ficción',
       description: 'La historia de un hombre que se despierta una mañana convertido en un insecto. Una novela que explora temas como la alienación, la angustia y la pérdida de la identidad.',
-      stock: 10
+      stock: 8
     }
     ,
     {
       id: 10,
       name: 'El guardián entre el centeno',
       img: 'https://images.cdn1.buscalibre.com/fit-in/360x360/d1/d8/d1d83af23331b1e61922bcf3f7fa2024.jpg',
-      price: 20000,
+      price: 53000,
       category: 'Ficción',
       description: 'La historia de un adolescente que lucha por encontrar su lugar en el mundo. Una novela que explora temas como la rebeldía, la incomprensión y la búsqueda de la identidad.',
       stock: 10
@@ -119,10 +128,10 @@ let productList = JSON.parse(localStorage.getItem('productList')) ||[
       id: 11,
       name: 'El señor de las moscas',
       img: 'https://images.cdn1.buscalibre.com/fit-in/360x360/cd/fb/cdfb82400c8ac3c4f3d71f5224856363.jpg',
-      price: 20000,
+      price: 12000,
       category: 'Ficción',
       description: 'La historia de un grupo de niños que se quedan varados en una isla desierta. Una novela que explora temas como la naturaleza humana, la violencia y la lucha por la supervivencia.',
-      stock: 10
+      stock: 25
     }
     ,
     {
@@ -132,37 +141,37 @@ let productList = JSON.parse(localStorage.getItem('productList')) ||[
       price: 25000,
       category: 'Ficción',
       description: 'Una distopía en la que el gobierno controla todos los aspectos de la vida de las personas. Una novela que explora temas como la vigilancia, la propaganda y la pérdida de la libertad.',
-      stock: 10
+      stock: 22
     }
     ,
     {
       id: 13,
       name: 'El retrato de Dorian Gray',
       img: 'https://images.cdn2.buscalibre.com/fit-in/360x360/91/18/9118645bef1e527a3e1f14e7187ac89e.jpg',
-      price: 25000,
+      price: 12000,
       category: 'Ficción',
       description: 'La historia de un joven que hace un pacto con el diablo para conservar su juventud y belleza. Una novela que explora temas como la vanidad, la corrupción y el mal.',
-      stock: 10
+      stock: 21
     }
     ,
     {
       id: 14,
       name: 'La invención de Morel',
       img: 'https://upload.wikimedia.org/wikipedia/commons/6/63/La_invenci%C3%B3n_de_Morel.JPG',
-      price: 25000,
+      price: 21000,
       category: 'Ficción',
       description: 'La historia de un hombre que llega a una isla desierta y descubre que está habitada por figuras que repiten una y otra vez los mismos movimientos. Una novela que explora temas como la identidad, la memoria y la realidad.',
-      stock: 10
+      stock: 13
     }
     ,
     {
       id: 15,
       name: 'El extranjero',
       img: 'https://images.cdn2.buscalibre.com/fit-in/360x360/bf/25/bf2575c6341c42feafcb98dbed10ca37.jpg',
-      price: 25000,
+      price: 45000,
       category: 'Ficción',
       description: 'La historia de un hombre que asesina a un árabe sin motivo aparente. Una novela que explora temas como la alienación, la culpa y la incomprensión.',
-      stock: 10
+      stock: 17
     }
     ,
     {
@@ -172,34 +181,34 @@ let productList = JSON.parse(localStorage.getItem('productList')) ||[
       price: 25000,
       category: 'Ficción',
       description: 'La historia de un fraile franciscano que investiga una serie de asesinatos en una abadía benedictina. Una novela que explora temas como la fe, la razón y el misterio.',
-      stock: 10
+      stock: 4
     }
     ,
     {
       id: 17,
       name: 'La sombra del viento',
       img: 'https://images.cdn3.buscalibre.com/fit-in/360x360/97/a9/97a9e0ef37c3b33e9303147883d03372.jpg',
-      price: 25000,
+      price: 38000,
       category: 'Ficción',
       description: 'La historia de un hombre que busca a su padre, un escritor desaparecido. Una novela que explora temas como el amor, la pérdida y la memoria.',
-      stock: 10
+      stock: 13
     }
     ,
     {
       id: 18,
       name: 'La ciudad de los prodigios',
       img: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1207901670i/87819.jpg',
-      price: 25000,
+      price: 17000,
       category: 'Ficción',
       description: 'La historia de un niño que crece en Barcelona durante el siglo XIX. Una novela que explora temas como la magia, la historia y la fantasía.',
-      stock: 10
+      stock: 11
     }
     ,
     {
         id: 19,
         name: 'El Principito',
         img: 'https://nidodelibros.com/wp-content/uploads/2021/04/9789877514308.jpeg',
-        price: 25000,
+        price: 90000,
         category: 'Ficción',
         description: 'Aparece un pequeño príncipe. En sus conversaciones con él, el narrador revela su propia visión sobre la estupidez humana y la sencilla sabiduría de los niños que la mayoría de las personas pierden cuando crecen y se hacen adultos.',
         stock: 10
@@ -208,8 +217,8 @@ let productList = JSON.parse(localStorage.getItem('productList')) ||[
     {
         id: 20,
         name: 'Sapiens: De animales a dioses',
-        img: "",
-        price:  32000,
+        img: "https://images.cdn2.buscalibre.com/fit-in/360x360/b5/1a/b51a9baa4e59e89a3578cb224e1f1d81.jpg",
+        price:  21500,
         category: 'No Ficción',
         description: 'Una exploración reflexiva de la historia e impacto de Homo sapiens en el mundo. El libro aborda las revoluciones cognitivas, agrícolas y científicas que dieron forma a la civilización humana.',
         stock: 20
@@ -219,7 +228,7 @@ let productList = JSON.parse(localStorage.getItem('productList')) ||[
     id: 21,
   name: 'Matar a un ruiseñor',
   img: 'https://panamericana.vtexassets.com/arquivos/ids/471118/matar-un-ruisenor-9781400337712.jpg?v=638067934014700000',
-  price: 28000,
+  price: 30000,
   category: 'Ficcion',
   description: 'Una novela clásica ambientada en el sur de Estados Unidos durante la década de 1930. Explora temas de injusticia racial y crecimiento moral a través de los ojos de una niña llamada Scout Finch.',
   stock: 15
@@ -229,10 +238,10 @@ let productList = JSON.parse(localStorage.getItem('productList')) ||[
       id: 22,
       name: 'El poder del ahora',
       img: 'https://www.penguinlibros.com/co/2523717/el-poder-del-ahora.jpg',
-      price: 25000,
+      price: 11000,
       category: 'Autoayuda',
       description: 'Un libro sobre la importancia de vivir el presente y dejar de preocuparse por el pasado o el futuro. El poder del ahora ha sido traducido a más de 50 idiomas y ha vendido más de 10 millones de copias en todo el mundo.',
-      stock: 10
+      stock: 13
     }
     ,
     {
@@ -242,17 +251,17 @@ let productList = JSON.parse(localStorage.getItem('productList')) ||[
       price: 25000,
       category: 'Teatro',
       description: 'Una tragedia sobre un príncipe que busca vengar la muerte de su padre. Hamlet es una de las obras de teatro más famosas y aclamadas de todos los tiempos.',
-      stock: 10
+      stock: 21
     }
     ,
       {
         id: 24,
         name: 'Odes',
         img: 'https://images.cdn1.buscalibre.com/fit-in/360x360/6f/16/6f162aadf9ddcc8d01b859c03563bb9b.jpg',
-        price: 25000,
+        price: 36000,
         category: 'Poesía',
         description: 'Una colección de poemas dedicados a diferentes dioses y héroes griegos. Las odas son un ejemplo de la belleza y la complejidad de la poesía griega antigua.',
-        stock: 10
+        stock: 30
       }
      
     
@@ -261,10 +270,10 @@ let productList = JSON.parse(localStorage.getItem('productList')) ||[
       id: 26,
       name: 'El alquimista',
       img: 'https://images.cdn3.buscalibre.com/fit-in/360x360/04/1f/041faab83743751d96b0b362733f33f4.jpg',
-      price: 25000,
+      price: 35000,
       category: 'Ficción',
       description: 'Un joven pastor portugués emprende un viaje en busca de un tesoro enterrado, siguiendo las indicaciones de un rey sabio. A lo largo de su viaje, el pastor aprende sobre el amor, el coraje y la importancia de seguir los sueños.',
-      stock: 10
+      stock:16
     }
     
     ,
@@ -272,27 +281,27 @@ let productList = JSON.parse(localStorage.getItem('productList')) ||[
       id: 27,
       name: 'El hombre en busca de sentido',
       img: 'https://images.cdn1.buscalibre.com/fit-in/360x360/f6/d0/f6d0aba3e83069dee397322df8889ec4.jpg',
-      price: 25000,
+      price: 14000,
       category: 'Ficción',
       description: 'La historia de un judío austriaco que es prisionero en un campo de concentración nazi. Una novela que explora temas como la fe, el sufrimiento y la búsqueda del sentido de la vida.',
-      stock: 10
+      stock: 5
     }
     ,
     {
       id: 28,
       name: 'El señor de los anillos',
       img: 'https://images.cdn1.buscalibre.com/fit-in/360x360/66/1a/661a3760157941a94cb8db3f5a9d5060.jpg',
-      price: 25000,
+      price: 54000,
       category: 'Ficción',
       description: 'La historia de un grupo de hobbits que se embarcan en una peligrosa misión para destruir el Anillo Único. Una novela que explora temas como la amistad, el bien y el mal, y la lucha contra la oscuridad.',
-      stock: 10
+      stock: 12
     }
     ,
     {
       id: 29,
       name: 'La guía del autoestopista galáctico',
       img: 'https://imagessl8.casadellibro.com/a/l/s5/08/9788433973108.webp',
-      price: 25000,
+      price: 80000,
       category: 'Ficción',
       description: 'La historia de Arthur Dent, un hombre que sobrevive a la destrucción de la Tierra y emprende un viaje por el universo con un extraterrestre. Una novela que explora temas como el humor, la ciencia ficción y la búsqueda del sentido de la vida.',
       stock: 10
@@ -305,7 +314,7 @@ let productList = JSON.parse(localStorage.getItem('productList')) ||[
       price: 25000,
       category: 'Ficción',
       description: 'La historia de Ender Wiggin, un niño prodigio que es entrenado para liderar la guerra contra una raza alienígena. Una novela que explora temas como la guerra, la política y la naturaleza humana.',
-      stock: 10
+      stock: 16
     }
     
   
@@ -339,6 +348,15 @@ CleanCar.addEventListener('click',()=>{
 
   showHTML()
 
+})
+const closeupdate=document.querySelector('#close-update')
+const closeCreate=document.querySelector('#close-create')
+closeCreate.addEventListener('click',()=>{
+  formCreate.classList.toggle('hidden-cart');
+})
+
+closeupdate.addEventListener('click',()=>{
+  formUpdate.classList.toggle('hidden-cart');
 })
 
 Update.addEventListener('click',()=>{
@@ -398,7 +416,7 @@ function addProduct() {
 
 
 
-function renderProducts(products,filter) {
+function renderProducts(products) {
 
   
 
@@ -410,7 +428,7 @@ function renderProducts(products,filter) {
         <div class="top">
           <p class="identity">${item.id}</p>
           <h3>${item.name}</h3>
-          <img src="${item.img}" alt="">
+          <img id="imageProduc" src="${item.img}" alt="">
         </div>
         
         <p id="description">${item.description}</p>
@@ -439,7 +457,7 @@ function renderProducts(products,filter) {
         quantity: 1,
         title: product.querySelector('h3') ? product.querySelector('h3').textContent : '',
         price: product.querySelector('#price') ? product.querySelector('#price').textContent : '',
-        imgSrc: product.querySelector('img') ? product.querySelector('img').src : '',
+        imgSrc: product.querySelector('#imageProduc') ? product.querySelector('img').src : '',
       };
   
       const targetProduct = productList.find((p) => p.id === infoProduct.id);
@@ -521,7 +539,7 @@ const showHTML = () =>{
 
       containerProduct.innerHTML = `
             <div class="info-cart-product">
-                          <img src="">
+                          <img src="${product.img}">
                           <span class="cantidad-producto-carrito">${product.quantity}</span>
                           <p class="titulo-producto-carrito">${product.title}</p>
                           <span class="precio-producto-carrito">${product.price}</span>
@@ -613,28 +631,27 @@ function fillProductDetails() {
   }
 }
 
-
+const productAlter = productList
 
 filter.addEventListener('change', () => {
   const selectedFilter = filter.value;
   if (selectedFilter === 'Ascend') {
     // Ordenar productos de menor a mayor precio
-    productList.sort((a, b) => a.price - b.price);
+    productAlter.sort((a, b) => a.price - b.price);
   } else if (selectedFilter === 'Descend') {
     // Ordenar productos de mayor a menor precio
-    productList.sort((a, b) => b.price - a.price);
-  } else if (selectedFilter === 'noneF') {
-    renderProducts(productList);
+    productAlter.sort((a, b) => b.price - a.price);
+  
   } else if (selectedFilter === 'NameAscent') {
-    productList.sort((a, b) => a.name.localeCompare(b.name));
+    productAlter.sort((a, b) => a.name.localeCompare(b.name));
   } else if (selectedFilter === 'NameDescent') {
-    productList.sort((a, b) => b.name.localeCompare(a.name));
+    productAlter.sort((a, b) => b.name.localeCompare(a.name));
   }
   
   // Si se selecciona 'noneF', no aplicar ningún filtro
 
   // Renderizar productos después de aplicar el filtro
-  renderProducts(productList);
+  renderProducts(productAlter);
 });
 
 
@@ -663,7 +680,14 @@ function handleCategoryFilter() {
 
 
 
+function buscarProductos() {
+  const input = document.getElementById('searchInput');
+  const term = input.value.toLowerCase();
 
+  const resultados = productList.filter(producto => producto.name.toLowerCase().includes(term));
+
+  renderProducts(resultados)
+}
 
 
 

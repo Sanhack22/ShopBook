@@ -13,7 +13,7 @@
 
         <div class="container-icon">
             <div class="container-cart-icon">
-                <label for="filterCategory">Selecciona una opción:</label>
+                <label for="filterCategory">Selecciona una Categoria:</label>
                 <select id="filterCategory" >
                     <option value="noneC">Ninguna</option>
                     <option value="Ficción">Ficcion</option>
@@ -22,7 +22,8 @@
                     <option value="Autoayuda">Auto Ayuda</option>
                     <option value="Terror">Terror</option>
                     <option value="Literatura">Literatura</option>
-                    <option value="Teatro">Teatro</option><option value="Poesáa">Poesia</option>
+                    <option value="Teatro">Teatro</option>
+                    <option value="Poesía">Poesia</option>
                 </select>   
                 <p id="create-Product">Crear Producto</p>
                 <p id="Update">Actualizar Productos</p>
@@ -50,6 +51,8 @@
     </header>
     <section class="formCreate hidden-cart">
         <form id="productForm">
+            <span id="close-create">X</span>
+
             <h2>AGREGAR PRODUCTO</h2>
             <label for="productName">Nombre del Producto:</label>
             <input type="text" id="productName" required>
@@ -61,7 +64,16 @@
             <input type="number" id="productPrice" required>
         
             <label for="productCategory">Categoría:</label>
-            <input type="text" id="productCategory" required>
+            <Select id="productCategory" required>
+                <option value="Ficción">Ficcion</option>
+                <option value="Romance">Romance</option>
+                <option value="Historia">Historia</option>
+                <option value="Autoayuda">Auto Ayuda</option>
+                <option value="Terror">Terror</option>
+                <option value="Literatura">Literatura</option>
+                <option value="Teatro">Teatro</option>
+                <option value="Poesía">Poesia</option>
+            </Select>
         
             <label for="productDescription">Descripción:</label>
             <textarea id="productDescription" required></textarea>
@@ -77,23 +89,33 @@
     <div class="UpdateDiv hidden-cart">
     <form class="updateProductForm" >
         <h2>ACTUALIZAR</h2>
+        <span id="close-update">X</span>
         <section>
             <label for="productId">ID Producto:</label>
             <input type="number" id="productId" required>
         <button id="updateProductFormsearch" type="button" onclick="fillProductDetails()">Buscar Producto</button>
         </section>
         <main>        <div>
-        <label for="newName">Nombre:</label>
+        <label for="newName" id="LabelName">Nombre:</label>
         <input type="text" id="newName" required>
    
-        <label for="newCategory">Categoria:</label>
-        <input type="text" id="newCategory" required>
+        <label for="newCategory" id="LabelCategory">Categoria:</label>
+        <Select id="newCategory" required>
+            <option value="Ficción">Ficcion</option>
+            <option value="Romance">Romance</option>
+            <option value="Historia">Historia</option>
+            <option value="Autoayuda">Auto Ayuda</option>
+            <option value="Terror">Terror</option>
+            <option value="Literatura">Literatura</option>
+            <option value="Teatro">Teatro</option>
+            <option value="Poesía">Poesía</option>
+        </Select>
    
-        <label for="newStock">Cantidad:</label>
+        <label for="newStock" id="LabelStock">Cantidad:</label>
         <input type="number" id="newStock" required>
            
    
-        <label for="newPrice">Precio:</label>
+        <label for="newPrice" id="LabelPrice">Precio:</label>
         <input type="number" id="newPrice" required>
     </div>
     <div>
@@ -107,14 +129,15 @@
 
     </div>
     <div class="filters">
-        <label for="filter">Filtrar: </label>
+        <input type="text" id="searchInput" placeholder="Buscar productos..." oninput="buscarProductos()">
+
+        <label for="filter">FILTRAR: </label>
         <select id="filter" >
             
             <option value="Ascend">Precio Ascendente</option>
             <option value="Descend">Precio Descendente</option>
             <option value="NameAscent" >Por Nombre Acendente</option>
             <option value="NameDescent" >Por Nombre Descendente</option>
-            <option value="noneF">Ninguno</option>
 
         </select>
     </div>

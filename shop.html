@@ -13,18 +13,7 @@
 
         <div class="container-icon">
             <div class="container-cart-icon">
-                <label for="filterCategory">Selecciona una Categoria:</label>
-                <select id="filterCategory" >
-                    <option value="noneC">Ninguna</option>
-                    <option value="Ficción">Ficcion</option>
-                    <option value="Romance">Romance</option>
-                    <option value="Historia">Historia</option>
-                    <option value="Autoayuda">Auto Ayuda</option>
-                    <option value="Terror">Terror</option>
-                    <option value="Literatura">Literatura</option>
-                    <option value="Teatro">Teatro</option>
-                    <option value="Poesía">Poesia</option>
-                </select>   
+                
                 <p id="create-Product">Crear Producto</p>
                 <p id="Update">Actualizar Productos</p>
                 <img src="asset/carritos.svg" alt="" id="car-buy" class="icon-cart">
@@ -95,7 +84,8 @@
             <input type="number" id="productId" required>
         <button id="updateProductFormsearch" type="button" onclick="fillProductDetails()">Buscar Producto</button>
         </section>
-        <main>        <div>
+        <main>
+            <div>
         <label for="newName" id="LabelName">Nombre:</label>
         <input type="text" id="newName" required>
    
@@ -130,16 +120,25 @@
     </div>
     <div class="filters">
         <input type="text" id="searchInput" placeholder="Buscar productos..." oninput="buscarProductos()">
-
         <label for="filter">FILTRAR: </label>
         <select id="filter" >
-            
             <option value="Ascend">Precio Ascendente</option>
             <option value="Descend">Precio Descendente</option>
             <option value="NameAscent" >Por Nombre Acendente</option>
             <option value="NameDescent" >Por Nombre Descendente</option>
-
         </select>
+        <label for="filterCategory">CATEGORIA:</label>
+                <select id="filterCategory" >
+                    <option value="noneC">Ninguna</option>
+                    <option value="Ficción">Ficcion</option>
+                    <option value="Romance">Romance</option>
+                    <option value="Historia">Historia</option>
+                    <option value="Autoayuda">Auto Ayuda</option>
+                    <option value="Terror">Terror</option>
+                    <option value="Literatura">Literatura</option>
+                    <option value="Teatro">Teatro</option>
+                    <option value="Poesía">Poesia</option>
+                </select>   
     </div>
     <div id="container-items">
         

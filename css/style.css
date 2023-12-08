@@ -484,6 +484,10 @@ main{
 }
 
 @media(max-width:768px){
+    body{
+        color: #ddd;
+        background-color: black;
+    }
    header{
     flex-direction: column;
    }

@@ -457,7 +457,6 @@ function renderProducts(products) {
         quantity: 1,
         title: product.querySelector('h3') ? product.querySelector('h3').textContent : '',
         price: product.querySelector('#price') ? product.querySelector('#price').textContent : '',
-        imgSrc: product.querySelector('#imageProduc') ? product.querySelector('img').src : '',
       };
   
       const targetProduct = productList.find((p) => p.id === infoProduct.id);
@@ -539,7 +538,6 @@ const showHTML = () =>{
 
       containerProduct.innerHTML = `
             <div class="info-cart-product">
-                          <img src="${product.img}">
                           <span class="cantidad-producto-carrito">${product.quantity}</span>
                           <p class="titulo-producto-carrito">${product.title}</p>
                           <span class="precio-producto-carrito">${product.price}</span>
